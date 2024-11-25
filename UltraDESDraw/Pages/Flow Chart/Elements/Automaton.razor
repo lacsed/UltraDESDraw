@@ -1,0 +1,18 @@
+<div id="ring" style="position: absolute; top: @(mouseY - divHeight / 2)px; left: @(mouseX - divWidth / 2)px; pointer-events:none">
+    <svg width=@divWidth height=@divHeight xmlns="http://www.w3.org/2000/svg">
+        <!-- Círculo externo -->
+        <circle cx="100" cy="100" r=@bigRad stroke="black" stroke-width="10" fill="none" />
+        <!-- Círculo interno para criar o "anel" -->
+        <circle cx="100" cy="100" r=@smallRad stroke="white" stroke-width="10" fill="none" />
+    </svg>
+</div>
+
+@code{
+    [Parameter] public float mouseY {get; set; }
+    [Parameter] public float mouseX {get; set; }
+
+    private float bigRad = 90;
+    private float smallRad = 70;
+    private float divWidth = 200;
+    private float divHeight = 200;
+}

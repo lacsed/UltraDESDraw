@@ -1,0 +1,37 @@
+@namespace UltraDESDraw.Components
+@inject SharedDataService SharedDataService
+
+<svg id=flow-chart-canvas @onclick="CanvasClicked">
+    @* @foreach(AutoAVL.Automaton automaton in SharedDataService.ChartData.Automata)
+    {
+        <FlowChartAutomaton position="automaton.position"/>
+    } *@
+    @* @foreach(int operation in SharedDataService.ChartData.Operations)
+    {
+        <FlowChartOperation/>
+    }
+    @foreach(int connection in SharedDataService.ChartData.Connections)
+    {
+        <FlowChartConnection/>
+    } *@
+</svg>
+
+
+@code {
+    [Parameter]
+    public bool NewItem {get; set; }
+    [Parameter]
+    public EventCallback<bool> NewItemChanged {get; set; }
+
+    private async Task CanvasClicked(MouseEventArgs e)
+    {
+        if (NewItem)
+        {
+            //Automaton newAutomaton = new Automaton();
+            //newAutomaton.position = ((float) e.OffsetX, (float) e.OffsetY);
+            //SharedDataService.ChartData.Automata.Add(newAutomaton);
+            NewItem = false;
+            await NewItemChanged.InvokeAsync(NewItem);
+        }
+    }
+}

@@ -1,0 +1,65 @@
+#container[b-pwrqwrreul] {
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#container #top-row[b-pwrqwrreul] {
+  display: flex;
+  flex-direction: row;
+}
+#container #top-row #logo[b-pwrqwrreul] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#container #bottom-row[b-pwrqwrreul] {
+  display: flex;
+  flex-direction: row;
+}
+
+#run-button[b-pwrqwrreul] {
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#run-button #simulate-logo[b-pwrqwrreul] {
+  width: 90px;
+  height: auto;
+}
+#run-button #simulate-text[b-pwrqwrreul] {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+}
+
+.logo[b-pwrqwrreul] {
+  width: 80%;
+  height: auto;
+}
+
+.left-element[b-pwrqwrreul] {
+  width: 200px;
+}
+
+.right-element[b-pwrqwrreul] {
+  width: 100%;
+}
+
+.top-element[b-pwrqwrreul] {
+  height: 200px;
+}
+
+.bottom-element[b-pwrqwrreul] {
+  height: 100%;
+}
+
+.border-radius[b-pwrqwrreul] {
+  border-radius: 10px;
+}/*# sourceMappingURL=AutomatonEdit.razor.css.map */

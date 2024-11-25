@@ -1,0 +1,57 @@
+#container[b-gofvhka0fj] {
+  background-color: #E0E0E0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0px 0px;
+  padding-top: 20px;
+}
+
+.label[b-gofvhka0fj] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: gray;
+}
+
+.icon[b-gofvhka0fj] {
+  width: 20px;
+  height: auto;
+}
+
+.node-entry[b-gofvhka0fj] {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.node-entry .node-name[b-gofvhka0fj] {
+  max-width: 200px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.node-entry .node-entry-buttons[b-gofvhka0fj] {
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: row;
+}
+
+ul[b-gofvhka0fj] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 50%;
+}
+
+li[b-gofvhka0fj] {
+  width: 80%;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+.no-select[b-gofvhka0fj] {
+  user-select: none; /* Standard syntax */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}/*# sourceMappingURL=EditPanel.razor.css.map */

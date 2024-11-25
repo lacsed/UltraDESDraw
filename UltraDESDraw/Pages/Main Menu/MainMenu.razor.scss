@@ -1,0 +1,56 @@
+#main-menu{
+    width: 100vw;
+    height: 100vh;
+
+    #menu-content{
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        #menu-message{
+            font-size: 90px;
+        }
+
+        #menu-options{
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
+
+.button{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 10px
+}
+
+.menu-option-icon{
+    height: 60px;
+    width: auto;
+    pointer-events: auto;
+}  
+
+object{
+    pointer-events: auto;
+}
+
+img{
+    cursor: pointer;
+    width: 100px;
+    height: auto;
+}
+
+.hand-written-text {
+    font-family: "Playwrite CU", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.8em;
+  }

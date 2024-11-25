@@ -1,0 +1,60 @@
+@page "/flow-chart"
+@inject IJSRuntime IJSRuntime
+
+<div id="container" @onmousemove="UpdateMousePosition" @onkeyup="HandleKeyPress">
+    <div id="panel" @onkeypress="HandleKeyPress">
+        <div id="new-automaton-button" @onclick="AddingAutomaton" @onkeyup="HandleKeyPress">
+            Automato
+        </div>
+    </div>
+    <FlowChartCanvas @bind-NewItem=addingItem/>
+
+    @if (addingItem)
+    {
+        <div id="new-item" style="position: absolute; top: @(topM)px; left: @(leftM)px; pointer-events:none">
+            <object data="/Images/Icons/losangulo.svg" type="image/svg+xml"></object>
+        </div>
+    }
+</div>
+
+@code{
+    private bool addingItem = false;
+
+    private float topM = 0;
+    private float leftM = 0;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        @* if(firstRender)
+        {
+            await IJSRuntime.InvokeVoidAsync("MAINF.initializePage");
+        } *@
+    }
+
+    private void AddingAutomaton()
+    {
+        addingItem = true;
+    }
+
+    private void UpdateMousePosition(MouseEventArgs e)
+    {
+        topM = (float) e.ClientY;
+        leftM = (float) e.ClientX;
+    }
+
+    private void HandleKeyPress(KeyboardEventArgs e)
+    {
+        switch (e.Code)
+        {
+            case "Escape":
+                addingItem = false;
+                break;
+        }
+    }
+
+    private void FlowChartClick(MouseEventArgs e)
+    {
+        if (addingItem)
+            addingItem = false;
+    }
+}

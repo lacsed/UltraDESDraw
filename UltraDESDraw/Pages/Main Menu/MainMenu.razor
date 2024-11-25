@@ -1,0 +1,28 @@
+@page "/"
+@page "/main-menu"
+@inject NavigationManager navigationManager
+
+<div id="main-menu">
+    <div id="menu-content">
+        <div id="menu-message">
+            UltraDES <span class="hand-written-text">Draw</span>
+        </div>
+        <div id="menu-options">
+            <div class="button" @onclick="NewDrawing">
+                <img src="/Images/Icons/new page.svg" alt="New Drawing">
+                New Drawing
+            </div>
+            <div class="button">
+                <img src="/Images/Icons/folder.svg" alt="Open Drawing">
+                Open Drawing
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private void NewDrawing()
+    {
+        navigationManager.NavigateTo("/automaton-edit", false);
+    }
+}

@@ -1,0 +1,107 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = UltraDESDraw
+build_property.RootNamespace = UltraDESDraw
+build_property.ProjectDir = /home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw
+build_property._RazorSourceGeneratorDebug = 
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Components/FlowChartConnection.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9GbG93Q2hhcnRDb25uZWN0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Components/FlowChartOperation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9GbG93Q2hhcnRPcGVyYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Pages/Flow Chart/Elements/Automaton.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmxvdyBDaGFydC9FbGVtZW50cy9BdXRvbWF0b24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Components/Edit/EditCanvas/EditCanvas.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9FZGl0L0VkaXRDYW52YXMvRWRpdENhbnZhcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-j7n3q461ou
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Components/Edit/EditLink/EditLink.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9FZGl0L0VkaXRMaW5rL0VkaXRMaW5rLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-m6v6d2zexk
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Components/Edit/EditMenu/EditMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9FZGl0L0VkaXRNZW51L0VkaXRNZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-2ljkya8w9q
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Components/Edit/EditNode/EditNode.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9FZGl0L0VkaXROb2RlL0VkaXROb2RlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-alwl59eg2f
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Components/Edit/EditPanel/EditPanel.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9FZGl0L0VkaXRQYW5lbC9FZGl0UGFuZWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-mt82etewhs
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Components/Edit/EditTempLink/EditTempLink.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9FZGl0L0VkaXRUZW1wTGluay9FZGl0VGVtcExpbmsucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-hyfy6ndljc
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Components/Flow Chart/Automaton/FlowChartAutomaton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9GbG93IENoYXJ0L0F1dG9tYXRvbi9GbG93Q2hhcnRBdXRvbWF0b24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-e4kmo063lc
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Components/Flow Chart/Canvas/FlowChartCanvas.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9GbG93IENoYXJ0L0NhbnZhcy9GbG93Q2hhcnRDYW52YXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-54h8lthbhp
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-5kuv7afkoj
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-e7yu4muqqp
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Pages/Automaton Edit/AutomatonEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0b21hdG9uIEVkaXQvQXV0b21hdG9uRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-z1mv7e4kmc
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Pages/Flow Chart/Flow Chart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmxvdyBDaGFydC9GbG93IENoYXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-x0v1n56x8e
+
+[/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/Pages/Main Menu/MainMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbiBNZW51L01haW5NZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-p3828ja5sd

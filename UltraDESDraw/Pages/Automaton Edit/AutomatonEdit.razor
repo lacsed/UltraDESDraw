@@ -1,0 +1,26 @@
+@page "/automaton-edit"
+@inject IJSRuntime IJSRuntime
+@inject SharedDataService SharedDataService
+
+<div id="container">
+    <div id="top-row" class="top-element">
+        <div id="logo" class="left-element">
+            <img src="\Images\UltraDES-Logo.png" alt="UltraDES Logo" class="logo">
+        </div>
+        <div id="options" class="right-element border-radius">
+            <EditMenu/>
+        </div>
+    </div>
+    <div id="bottom-row" class="bottom-element">
+        <div id="side-panel" class="left-element">
+            <EditPanel/>
+        </div>
+        <div id="canvas" class="right-element">
+            <EditCanvas/>
+        </div>
+    </div>
+</div>
+
+@code{
+    private AutoAVL.Drawables.Graph Graph = new AutoAVL.Drawables.Graph();
+}

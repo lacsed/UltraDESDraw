@@ -1,0 +1,113 @@
+{
+  "Files": [
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/obj/Debug/net8.0/compressed/xpipadi8fg.gz",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/obj/Debug/net8.0/scopedcss/bundle/UltraDESDraw.styles.css",
+      "PackagePath": "staticwebassets/UltraDESDraw.styles.css"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/arrow down.svg",
+      "PackagePath": "staticwebassets/Images/Icons/arrow down.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/arrow up.svg",
+      "PackagePath": "staticwebassets/Images/Icons/arrow up.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/checked circle.svg",
+      "PackagePath": "staticwebassets/Images/Icons/checked circle.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/folder.svg",
+      "PackagePath": "staticwebassets/Images/Icons/folder.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/free-shuffle.svg",
+      "PackagePath": "staticwebassets/Images/Icons/free-shuffle.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/losangulo.svg",
+      "PackagePath": "staticwebassets/Images/Icons/losangulo.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/losanguloPath.svg",
+      "PackagePath": "staticwebassets/Images/Icons/losanguloPath.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/new page.svg",
+      "PackagePath": "staticwebassets/Images/Icons/new page.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/play.svg",
+      "PackagePath": "staticwebassets/Images/Icons/play.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/trash.svg",
+      "PackagePath": "staticwebassets/Images/Icons/trash.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/Icons/unchecked circle.svg",
+      "PackagePath": "staticwebassets/Images/Icons/unchecked circle.svg"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/Images/UltraDES-Logo.png",
+      "PackagePath": "staticwebassets/Images/UltraDES-Logo.png"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/css/app.css",
+      "PackagePath": "staticwebassets/css/app.css"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/css/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/icon-192.png",
+      "PackagePath": "staticwebassets/icon-192.png"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/javascript/Flow Chart.js",
+      "PackagePath": "staticwebassets/javascript/Flow Chart.js"
+    },
+    {
+      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/sample-data/weather.json",
+      "PackagePath": "staticwebassets/sample-data/weather.json"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.UltraDESDraw.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.UltraDESDraw.props",
+      "PackagePath": "build\\UltraDESDraw.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.UltraDESDraw.props",
+      "PackagePath": "buildMultiTargeting\\UltraDESDraw.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.UltraDESDraw.props",
+      "PackagePath": "buildTransitive\\UltraDESDraw.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

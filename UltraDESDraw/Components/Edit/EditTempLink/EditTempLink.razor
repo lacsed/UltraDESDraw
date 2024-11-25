@@ -1,0 +1,90 @@
+@namespace UltraDESDraw.Components
+@inject SharedDataService SharedDataService
+
+@{
+    SetUp();
+    if (complete)
+    {
+        <line x1="@lineStart.x" y1="@lineStart.y" x2="@lineEnd.x" y2="@lineEnd.y" stroke="black" stroke-width="2" />
+    }
+    <polygon points="@arrowTip.x @arrowTip.y @rightWing.x @rightWing.y @leftWing.x @leftWing.y" tabindex="0" fill="black" style="outline: none;" stroke-width="1" />
+}
+
+@code{
+    private Vector2D? start {get; set; }
+    private Vector2D? end {get; set; }
+    private bool complete = false;
+    private Vector2D lineStart = new Vector2D();
+    private Vector2D lineEnd = new Vector2D();
+    private Vector2D arrowTip = new Vector2D();
+    private Vector2D rightWing = new Vector2D();
+    private Vector2D leftWing = new Vector2D();
+    protected override void OnInitialized()
+    {
+        SharedDataService.OnChange += StateHasChanged;
+    }
+
+    protected void Dispose()
+    {
+        SharedDataService.OnChange -= StateHasChanged;
+    }
+    
+    private void SetUp()
+    {
+        float distance;
+        
+        start = SharedDataService.StartNode == null ? SharedDataService.TempLinkStart : SharedDataService.Graph.svgCanvas.ToSvgCoordinates(SharedDataService.StartNode.position);
+        end = SharedDataService.EndNode == null ? SharedDataService.TempLinkEnd : SharedDataService.Graph.svgCanvas.ToSvgCoordinates(SharedDataService.EndNode.position);
+
+        float stateRadius = SharedDataService.Graph.drawingDir.nodeRadius;
+        float arrowLength = SharedDataService.Graph.drawingDir.arrowLength;
+        
+        Vector2D transitionDirection;
+        Vector2D perpendicularDirection;
+
+        distance = (end - start).Length();
+        transitionDirection = (end - start).Normalized();
+        perpendicularDirection = transitionDirection.Perpendicular();
+        
+        complete = true;
+
+        if (SharedDataService.IsCreatingInitialTransition())
+        {
+            lineStart = start;
+
+            if (SharedDataService.EndNode != null)
+            {
+                arrowTip = end - transitionDirection * stateRadius;
+                lineEnd = end - transitionDirection * (arrowLength + stateRadius);
+            } else
+            {
+                Console.WriteLine(SharedDataService.StartNode);
+                arrowTip = end;
+                lineEnd = end - transitionDirection * arrowLength;
+            } 
+        } else
+        {
+            if (distance > stateRadius + arrowLength)
+            {
+                lineStart = start + stateRadius * transitionDirection;
+
+                if (SharedDataService.EndNode != null)
+                {
+                    arrowTip = end - transitionDirection * stateRadius;
+                    lineEnd = end - transitionDirection * (arrowLength + stateRadius);
+                } else
+                {
+                    arrowTip = end;
+                    lineEnd = end - transitionDirection * arrowLength;
+                } 
+            } else
+            {
+                complete = false;
+                arrowTip = start + transitionDirection * (stateRadius + arrowLength);
+            }
+        }
+                
+        rightWing = lineEnd + perpendicularDirection * arrowLength / 2;
+        leftWing = lineEnd - perpendicularDirection * arrowLength / 2;
+    }
+}

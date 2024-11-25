@@ -1,0 +1,52 @@
+#main-menu[b-f2iq1e2gxi] {
+  width: 100vw;
+  height: 100vh;
+}
+#main-menu #menu-content[b-f2iq1e2gxi] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#main-menu #menu-content #menu-message[b-f2iq1e2gxi] {
+  font-size: 90px;
+}
+#main-menu #menu-content #menu-options[b-f2iq1e2gxi] {
+  display: flex;
+  flex-direction: row;
+}
+
+.button[b-f2iq1e2gxi] {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 10px;
+}
+
+.menu-option-icon[b-f2iq1e2gxi] {
+  height: 60px;
+  width: auto;
+  pointer-events: auto;
+}
+
+object[b-f2iq1e2gxi] {
+  pointer-events: auto;
+}
+
+img[b-f2iq1e2gxi] {
+  cursor: pointer;
+  width: 100px;
+  height: auto;
+}
+
+.hand-written-text[b-f2iq1e2gxi] {
+  font-family: "Playwrite CU", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8em;
+}/*# sourceMappingURL=MainMenu.razor.css.map */

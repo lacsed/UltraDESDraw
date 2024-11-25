@@ -1,0 +1,10 @@
+@namespace UltraDESDraw.Components
+
+<image href="/Images/Icons/losanguloPath.svg" x="@(position.x - width / 2)" y="@(position.y - height / 2)" width="@width" height="@height"/>
+
+@code{
+    [Parameter]
+    public (float x, float y) position {get; set; }
+    private float width {get; set; } = 40;
+    private float height {get; set; } = 40;
+}

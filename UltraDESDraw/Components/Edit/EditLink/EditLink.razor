@@ -1,0 +1,245 @@
+@namespace UltraDESDraw.Components
+@inject SharedDataService SharedDataService
+
+@{
+    if (isCurved)
+    {
+        <path d="M @arcStart.x @arcStart.y A @arcRadius @arcRadius 0 @largeArcFlag @sweepFlag @arcEnd.x @arcEnd.y" fill="none" style="outline: none;" stroke="@linkColor" tabindex="0" stroke-width="2" pointer-events="none" />
+        <path d="M @arcStart.x @arcStart.y A @arcRadius @arcRadius 0 @largeArcFlag @sweepFlag @arcEnd.x @arcEnd.y" fill="none" style="outline: none;" stroke="transparent" tabindex="0" stroke-width="10" pointer-events="stroke" 
+                @onmousedown="HandleMouseDown"/>
+    }
+    else
+    {
+        <line x1="@lineStart.x" y1="@lineStart.y" x2="@lineEnd.x" y2="@lineEnd.y" stroke="@linkColor" stroke-width="2" pointer-events="none" />
+        <line x1="@lineStart.x" y1="@lineStart.y" x2="@arrowTip.x" y2="@arrowTip.y" tabindex="0" stroke="transparent" style="outline: none;" stroke-width="10" pointer-events="stroke"
+                @onmousedown="HandleMouseDown"/>
+
+    }
+    <polygon points="@arrowTip.x @arrowTip.y @rightWing.x @rightWing.y @leftWing.x @leftWing.y" tabindex="0" fill="@linkColor" style="outline: none;" stroke-width="1" />
+}
+
+<text x="@textPosition.x" y="@textPosition.y" font-size="20" text-anchor="middle" dominant-baseline="central" style="user-select: none;" fill="@linkColor">
+    @testName
+    @if (isFocused)
+    {
+        <tspan>|<animate attributeName="visibility" from="visible" to="hidden" dur="1s" repeatCount="indefinite" /></tspan>
+    }
+</text>
+
+
+@code {
+    [Parameter]
+    public Link? Link {get; set; }
+
+    private Vector2D lineStart = new Vector2D();
+    private Vector2D lineEnd = new Vector2D();
+
+    private Vector2D arcStart = new Vector2D();
+    private Vector2D arcEnd = new Vector2D();
+
+    private Vector2D arrowTip = new Vector2D();
+    private Vector2D rightWing = new Vector2D();
+    private Vector2D leftWing = new Vector2D();
+
+    private Vector2D textPosition = new Vector2D();
+
+    private Vector2D arcCenter = new Vector2D();
+    private string testName = "testName";
+    private bool isCurved = false;
+    private bool isFocused = false;
+
+    private float centerRatio;
+    private float arcRadius;
+    private float arrowLength;
+    private float arrowWidth;
+    private float nodeRadius;
+
+    private int largeArcFlag = 0;
+    private int sweepFlag = 0;
+
+    private string linkColor = "black";
+
+    protected override async Task OnParametersSetAsync()
+    {
+        centerRatio = SharedDataService.Graph.drawingDir.nodeRadius;
+        arcRadius = SharedDataService.Graph.drawingDir.arcSize;
+        arrowLength = SharedDataService.Graph.drawingDir.arrowLength;
+        arrowWidth = SharedDataService.Graph.drawingDir.arrowWidth;
+        nodeRadius = SharedDataService.Graph.drawingDir.nodeRadius;
+        Vector2D destinationState = Link.end.position;
+        Vector2D originState = Link.start.position;
+        Vector2D transitionDirection = (destinationState - originState).Normalized();
+        Vector2D midPos = originState.Middle(destinationState);
+        Vector2D perpendicularDirection = transitionDirection.Perpendicular();
+
+        float transDist = (destinationState - originState).Length();
+
+        if (isCurved)
+        {
+            Vector2D center = midPos + perpendicularDirection * centerRatio * transDist;
+
+            arcRadius = (originState - center).Length();
+            float rtDir = (sweepFlag == 1) ? -1 : 1;
+            float textMargin = 20;
+
+            int centerSide = (centerRatio > 0) ? 1 : -1;
+            int textSide = (largeArcFlag > 0) ? 1 : -1;
+
+            Vector2D tempTextPos = center + perpendicularDirection * textSide * centerSide * (arcRadius + textMargin);
+            textPosition = tempTextPos.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+
+            Vector2D vCenterOrigin = originState - center;
+            Vector2D vCenterDestination = destinationState - center;
+
+            float ndRadAng = Vector2D.AngleBetween(nodeRadius, arcRadius, arcRadius);
+            float arwAng = Vector2D.AngleBetween(arrowLength, arcRadius, arcRadius);
+
+            Vector2D vCenterArcStart = vCenterOrigin.Rotated(rtDir * ndRadAng);
+            Vector2D vCenterArrowTip = vCenterDestination.Rotated(-rtDir * ndRadAng);
+            Vector2D vCenterArcEnd = vCenterArrowTip.Rotated(-rtDir * arwAng);
+
+            Vector2D tArcStart = center + vCenterArcStart;
+            Vector2D tArcEnd = center + vCenterArcEnd;
+            Vector2D tArrowTip = center + vCenterArrowTip;
+
+            Vector2D arrowDirection = (tArrowTip - tArcEnd).Normalized();
+            Vector2D arrowPerpendicular = arrowDirection.Perpendicular();
+
+            Vector2D tArrowRightWing = tArcEnd + arrowPerpendicular * arrowWidth / 2;
+            Vector2D tArrowLeftWing = tArcEnd - arrowPerpendicular * arrowWidth / 2;
+
+            arcStart = tArcStart.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+            arcEnd = tArcEnd.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+
+            arrowTip = tArrowTip.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+            rightWing = tArrowRightWing.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+            leftWing = tArrowLeftWing.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+        }
+        else
+        {
+            lineStart = originState + transitionDirection * nodeRadius;
+            lineEnd = destinationState - transitionDirection * (nodeRadius + arrowLength);
+
+            arrowTip = destinationState - transitionDirection * nodeRadius;
+            rightWing = lineEnd + perpendicularDirection * arrowWidth / 2;
+            leftWing = lineEnd - perpendicularDirection * arrowWidth / 2;
+
+            Vector2D cartesianText = midPos + perpendicularDirection * 20;
+            textPosition = cartesianText.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+
+            lineStart = lineStart.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+            lineEnd = lineEnd.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+
+            arrowTip = arrowTip.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+            rightWing = rightWing.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+            leftWing = leftWing.ToSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+        }
+
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public async Task HandleGainFocus()
+    {
+        isFocused = true;
+        linkColor = "blue";
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public async Task HandleLoseFocus()
+    {
+        isFocused = false;
+        linkColor = "black";
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task HandleMouseDown()
+    {
+        //await onLinkSelected.InvokeAsync(this);
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void HandleKeyUp(KeyboardEventArgs e)
+    {
+        if (e.Key == "Backspace" && testName.Length > 0)
+        {
+            if (testName.Length == 1)
+            {
+                testName = "";
+            }
+            else
+            {
+                testName = testName.Substring(0, testName.Length - 1);
+                if (testName[testName.Length - 1].Equals(' '))
+                    testName = testName.Substring(0, testName.Length - 1);
+            }
+            //await textChanged.InvokeAsync(testName);
+            StateHasChanged();
+        }
+        else if ((e.Key.Length == 1 && char.IsLetterOrDigit(e.Key[0])))
+        {
+            testName += e.Key;
+            //await textChanged.InvokeAsync(testName);
+            StateHasChanged();
+        }
+    }
+
+    public async Task HandleMouseMove(MouseEventArgs e)
+    {
+        Vector2D destinationState = Link.end.position;
+        Vector2D originState = Link.start.position;
+        
+        float tolerance = 0.1f;
+        float margin = 0.08f;
+
+        Vector2D msPosSVG = new Vector2D((float)e.OffsetX, (float)e.OffsetY);
+        Vector2D mousePosition = new Vector2D((float)e.OffsetX, (float)e.OffsetY).FromSvgCoordinates(SharedDataService.Graph.svgCanvas.SVGOrigin());
+
+        Vector2D midPos = originState.Middle(destinationState);
+
+        Vector2D vOD = destinationState - originState;
+        Vector2D vOM = mousePosition - originState;
+        Vector2D vDM = mousePosition - destinationState;
+
+        float distT = vOD.Length();
+        float distOM = vOM.Length();
+        float distDM = vDM.Length();
+        float distMM = (midPos - mousePosition).Length();
+        float transRad = distT / 2;
+
+        float distMT = Vector2D.DistanceToLine(mousePosition, originState, destinationState);
+
+        sweepFlag = (vOD.Cross(vOM) > 0) ? 1 : 0;
+
+        isCurved = true;
+
+        if (distMT < tolerance * distT)
+        {
+            isCurved = false;
+        }
+        else if (Math.Abs(distMM - transRad) < margin * transRad)
+        {
+            centerRatio = 0;
+            largeArcFlag = 0;
+        }
+        else
+        {
+            Vector2D center = Vector2D.FindCenter(originState, mousePosition, destinationState);
+
+            float radius = (destinationState - center).Length();
+            float distCM = (midPos - center).Length();
+
+            Vector2D vOC = (center - originState);
+            float value = vOD.Cross(vOC);
+
+            centerRatio = (vOD.Cross(vOC) > 0) ? -distCM / distT : distCM / distT;
+            largeArcFlag = (distMM < distT / 2) ? 0 : 1;
+        }
+
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private float FindRadius(Vector2D center, Vector2D point)
+    {
+        return (center - point).Length();
+    }
+}
