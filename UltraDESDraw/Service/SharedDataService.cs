@@ -26,6 +26,7 @@ namespace UltraDESDraw.Services
         private bool _holdingSpace = false;
         private bool _holdingShift = false;
         private bool _mouseDown = false;
+        private Vector2D _mousePosition = new Vector2D();
         #endregion
 
         public void NotifyDataChanged() => OnChange?.Invoke();
@@ -55,9 +56,16 @@ namespace UltraDESDraw.Services
             _initialTransition = false;
         }
 
+        private void ClearLinkData()
+        {
+            StartNode = null;
+            EndNode = null;
+            TempLinkStart = null;
+            TempLinkEnd = null;
+        }
+
         public void NodeEnter(Node node)
         {
-            Console.WriteLine("Um novo node entrou");
             InsideNode = node;
 
             if (_initialTransition)
@@ -66,18 +74,13 @@ namespace UltraDESDraw.Services
             } else if (StartNode != null)
             {
                 EndNode = node;
-            } else
-            {
-                StartNode = node;
             }
 
             NotifyDataChanged();
         }
         public void NodeLeave(Node node)
         {
-            if (StartNode == node)
-                StartNode = null;
-            else if (EndNode == node)
+            if (EndNode == node)
                 EndNode = null;
 
             InsideNode = null;
@@ -99,7 +102,13 @@ namespace UltraDESDraw.Services
                     _creatingLink = true;
 
                     if (InsideNode == null)
+                    {
                         _initialTransition = true;
+                        TempLinkStart = _mousePosition;
+                    } else
+                        StartNode = InsideNode;
+
+                    TempLinkEnd = _mousePosition;
                     
                 } else if (SelectedNode != null)
                 {
@@ -141,6 +150,7 @@ namespace UltraDESDraw.Services
                 }
 
                 ClearActions();
+                ClearLinkData();
                 NotifyDataChanged();
             }
         }
@@ -176,6 +186,8 @@ namespace UltraDESDraw.Services
 
         public void CanvasMouseMoveEvent(MouseEventArgs e)
         {
+            _mousePosition = new Vector2D((float) e.OffsetX, (float) e.OffsetY);
+
             if (_panning)
             {
                 Graph.svgCanvas.MoveOrigin(new Vector2D((float) -e.MovementX, (float) e.MovementY));
@@ -186,7 +198,7 @@ namespace UltraDESDraw.Services
             }
             else if (_creatingLink)
             {
-                TempLinkEnd = new Vector2D((float) e.OffsetX, (float) e.OffsetY);
+                TempLinkEnd = _mousePosition;
             }
 
             NotifyDataChanged();

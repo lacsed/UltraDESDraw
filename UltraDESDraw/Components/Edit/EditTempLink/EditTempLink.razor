@@ -33,8 +33,20 @@
     {
         float distance;
         
-        start = SharedDataService.StartNode == null ? SharedDataService.TempLinkStart : SharedDataService.Graph.svgCanvas.ToSvgCoordinates(SharedDataService.StartNode.position);
-        end = SharedDataService.EndNode == null ? SharedDataService.TempLinkEnd : SharedDataService.Graph.svgCanvas.ToSvgCoordinates(SharedDataService.EndNode.position);
+        if(SharedDataService.StartNode != null)
+            start = SharedDataService.Graph.svgCanvas.ToSvgCoordinates(SharedDataService.StartNode.position);
+        else if(SharedDataService.TempLinkStart != null)
+            start = SharedDataService.TempLinkStart;
+        else
+            start = new Vector2D();
+
+        if(SharedDataService.EndNode != null)
+            end = SharedDataService.Graph.svgCanvas.ToSvgCoordinates(SharedDataService.EndNode.position);
+        else if(SharedDataService.TempLinkEnd != null)
+            end = SharedDataService.TempLinkEnd;
+        else
+            end = new Vector2D();
+        
 
         float stateRadius = SharedDataService.Graph.drawingDir.nodeRadius;
         float arrowLength = SharedDataService.Graph.drawingDir.arrowLength;
@@ -58,7 +70,6 @@
                 lineEnd = end - transitionDirection * (arrowLength + stateRadius);
             } else
             {
-                Console.WriteLine(SharedDataService.StartNode);
                 arrowTip = end;
                 lineEnd = end - transitionDirection * arrowLength;
             } 
@@ -66,6 +77,7 @@
         {
             if (distance > stateRadius + arrowLength)
             {
+                Console.WriteLine(start);
                 lineStart = start + stateRadius * transitionDirection;
 
                 if (SharedDataService.EndNode != null)
@@ -79,12 +91,13 @@
                 } 
             } else
             {
+                Console.WriteLine(start);
                 complete = false;
                 arrowTip = start + transitionDirection * (stateRadius + arrowLength);
             }
         }
                 
-        rightWing = lineEnd + perpendicularDirection * arrowLength / 2;
-        leftWing = lineEnd - perpendicularDirection * arrowLength / 2;
+        rightWing = arrowTip - transitionDirection * arrowLength + perpendicularDirection * arrowLength / 2;
+        leftWing = arrowTip - transitionDirection * arrowLength - perpendicularDirection * arrowLength / 2;
     }
 }

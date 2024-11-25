@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
     },
     {
-      "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/obj/Debug/net8.0/compressed/xpipadi8fg.gz",
-      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
-    },
-    {
       "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/obj/Debug/net8.0/scopedcss/bundle/UltraDESDraw.styles.css",
       "PackagePath": "staticwebassets/UltraDESDraw.styles.css"
     },
@@ -91,6 +87,10 @@
     {
       "Id": "/home/paulo/Documents/Coding/Projects/LACSED/UltraDESDraw/UltraDESDraw/wwwroot/sample-data/weather.json",
       "PackagePath": "staticwebassets/sample-data/weather.json"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.UltraDESDraw.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.UltraDESDraw.Microsoft.AspNetCore.StaticWebAssets.props",
