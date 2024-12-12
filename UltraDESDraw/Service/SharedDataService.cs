@@ -68,6 +68,9 @@ namespace UltraDESDraw.Services
         {
             InsideNode = node;
 
+            if (node == StartNode)
+                return;
+
             if (_initialTransition)
             {
                 EndNode = node;
@@ -110,7 +113,7 @@ namespace UltraDESDraw.Services
 
                     TempLinkEnd = _mousePosition;
                     
-                } else if (SelectedNode != null)
+                } else if (InsideNode != null)
                 {
                     _movingNode = true;
                     cursor = "cursor: move;";
@@ -138,10 +141,20 @@ namespace UltraDESDraw.Services
                     
                     if (EndNode != null)
                     {
-                        if (StartNode != null)
+                        if (Graph?.graphLinks != null)
                         {
-                            var newLink = new Link(StartNode, EndNode, "");
-                            Graph.graphLinks.Add(newLink);
+                            if (StartNode != null)
+                            {
+                                var newLink = new Link(StartNode, EndNode, "");
+                                Graph.graphLinks.Add(newLink);
+                            } else if (_initialTransition)
+                            {
+                                var previousInitialLink = Graph.graphLinks.Find(x => x.isInitialLink);
+                                if (previousInitialLink != null)
+                                    Graph.graphLinks.Remove(previousInitialLink);
+                                var newLink = new Link(EndNode);
+                                Graph.graphLinks.Add(newLink);
+                            }
                         }
                     }
                 } else if (_movingNode)

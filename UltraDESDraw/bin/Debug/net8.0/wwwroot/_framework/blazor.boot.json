@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "UltraDESDraw",
   "resources": {
-    "hash": "sha256-l1yUMZB6wxQ2PkqWhAplhe/LJ8dUnBQo8vsNvN24gdU=",
+    "hash": "sha256-lJu/e/DanBXZTpkZZrOryjhRD3CDgbIzrTUqiFsSW0E=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
@@ -213,14 +213,14 @@
       "mscorlib.wasm": "sha256-KvqZaNpjwhrOuzE4b4aMFsI+VUTyiWfoDI4zn4l9BM8=",
       "netstandard.wasm": "sha256-v+s7sWxtOM6bnOvC0jFrtnm6uMfbDymwl2nHNgbS2LM=",
       "System.Private.CoreLib.wasm": "sha256-pklll63uFQoY6vaD3vbluS9osYiJWLLLmob1yHFgepI=",
-      "AutoAVL.wasm": "sha256-CtncBigO6F+Y6/ftAz0NagixFBz3fk8rT2+Eafi4KHA=",
+      "AutoAVL.wasm": "sha256-IRJinktU5xtOWYyYmN7g5x2uv8ugFCNGGdbhs0HmUBE=",
       "RazorLibrary.wasm": "sha256-PeNTYKfnxiE/lvdIQwBmNLb5m2uSRLmLtqkHvscWv5M=",
-      "UltraDESDraw.wasm": "sha256-k1kPxT2sfI/RcOAvYQmp56YGxBtdEGH5oB2tKQkUsD0="
+      "UltraDESDraw.wasm": "sha256-eLa0O/bn8eQv2AKSDKkGEbXmCVAojUFa39Z1ZJBilCY="
     },
     "pdb": {
       "RazorLibrary.pdb": "sha256-auKmb38nt4pEcRopy6nv+vpcwYh6nYKm5kWM9uclI/8=",
-      "AutoAVL.pdb": "sha256-CfxjccrBsOP1O3VciGQLRPj+wAV9qUZ4eCMHVYLMbOM=",
-      "UltraDESDraw.pdb": "sha256-14GQilSVoyaszHN2Mm+M9gCy1HHdJrNvV7Nqa7ULxIo="
+      "AutoAVL.pdb": "sha256-L1GScHeX+onh3lAxgu/IuomEZU/2W6QjNMoKYIkAzwk=",
+      "UltraDESDraw.pdb": "sha256-noK4bVFfLiqWIWKJNpoExwzhiZ8er3WLMOxyTB0Jkvs="
     }
   },
   "cacheBootResources": true,

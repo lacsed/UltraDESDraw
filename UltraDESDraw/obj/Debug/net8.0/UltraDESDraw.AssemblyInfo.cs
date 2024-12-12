@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UltraDESDraw")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5bfd94f2c79938b3ee1d8e1ef0491ef2a270a789")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36a6f1052ea6224fe880a437127c8de5ab3a5976")]
 [assembly: System.Reflection.AssemblyProductAttribute("UltraDESDraw")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UltraDESDraw")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

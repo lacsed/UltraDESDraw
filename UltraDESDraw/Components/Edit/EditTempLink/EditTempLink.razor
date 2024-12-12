@@ -77,7 +77,6 @@
         {
             if (distance > stateRadius + arrowLength)
             {
-                Console.WriteLine(start);
                 lineStart = start + stateRadius * transitionDirection;
 
                 if (SharedDataService.EndNode != null)
@@ -91,9 +90,9 @@
                 } 
             } else
             {
-                Console.WriteLine(start);
                 complete = false;
                 arrowTip = start + transitionDirection * (stateRadius + arrowLength);
+                Console.WriteLine(end);
             }
         }
                 
